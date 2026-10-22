@@ -1,0 +1,16 @@
+@font-face {
+    font-family: Archivo Black;
+    src: url(../fonts/ArchivoBlack-Regular.ttf);
+}
+
+@font-face {
+    font-family: Barlow Black;
+    src: url(../fonts/Barlow/Barlow-Regular.ttf);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: pixel Black;
+    src: url(../fonts/pixel-Regular.ttf);
+    font-weight: 400;
+}
