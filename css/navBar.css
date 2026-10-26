@@ -45,12 +45,25 @@ nav {
 }
 
 nav.scrolled {
-    background-color: rgba(248, 243, 243, 0.194)
+    background-color: rgba(20, 0, 0, 0.6);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+nav.scrolled a:hover {
+    color: #000000;
+}
+
+nav a.active {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    text-underline-offset: 8px;
 }
 
 section {
     min-height: 100vh;
-    scroll-margin-top: 80px;
+    min-height: 100svh;
+    scroll-margin-top: 0;
 }
 
 
@@ -93,6 +106,10 @@ section {
 
     nav ul.open {
         left: 0;
+    }
+
+    nav a:hover {
+        color: #ff4d4d;
     }
 
     header.hide {

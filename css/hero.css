@@ -31,8 +31,10 @@
 .hero-bg {
     position: absolute;
     inset: 0;
-    background: #c40703;
+    background: linear-gradient(to bottom, #c40703 0 55%, #9a0200 100%);
     z-index: 0;
+    perspective: 500px;                                   /* عمق المشهد */
+    perspective-origin: calc(50% + var(--mx, 0) * 10%) 56%; /* نقطة التلاشي = الأفق، وبتتحرك مع الماوس */
 }
 
 .hero-video {
@@ -110,4 +112,102 @@
     white-space: nowrap;
     animation: shake 2s infinite;
     transform-origin: center;
+}
+
+/* =====================================================
+   3D: أرضية شبكية بتتجه ناحيتك + عمق للكلام والشخصية
+   (الفيديو نفسه ما اتغيّرش)
+   ===================================================== */
+
+/* الأرضية: لوح مفصّل عند خط الأفق (56%) وبيتفرد لتحت */
+.hero-bg::before {
+    content: "";
+    position: absolute;
+    left: -50%;
+    width: 200%;
+    top: 56%;
+    height: 460px;
+    transform-origin: 50% 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.22) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.22) 2px, transparent 2px);
+    background-size: 60px 60px;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 45%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 45%);
+    animation:
+        floor-in 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) both,
+        floor-run 1.6s linear infinite;
+}
+
+/* لحظة الدخول: الأرضية تنزل من وضع قائم لوضع الأرض */
+@keyframes floor-in {
+    from {
+        transform: rotateX(0deg);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotateX(72deg);
+        opacity: 1;
+    }
+}
+
+/* الخطوط بتجري ناحيتك */
+@keyframes floor-run {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 60px;
+    }
+}
+
+/* العمق بالماوس: كل طبقة بتتحرك بمقدار مختلف (الأقرب أكتر) */
+#home {
+    --mx: 0;
+    --my: 0;
+}
+
+.hero-video {
+    translate: calc(var(--mx) * -12px) calc(var(--my) * -6px);
+}
+
+#home p {
+    translate: calc(var(--mx) * 18px) 0;
+    /* الكلام بسُمك: طبقات ظل متراصة بتعمل إحساس إنه مجسّم */
+    text-shadow:
+        1px 1px 0 #7d0200,
+        2px 2px 0 #7d0200,
+        3px 3px 0 #7d0200,
+        4px 4px 0 #740200,
+        5px 5px 0 #740200,
+        6px 6px 0 #6b0100,
+        7px 7px 0 #6b0100,
+        8px 8px 0 #620100,
+        10px 14px 18px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 738px) {
+    #home p {
+        text-shadow:
+            1px 1px 0 #7d0200,
+            2px 2px 0 #740200,
+            3px 3px 0 #6b0100,
+            4px 4px 0 #620100,
+            5px 8px 10px rgba(0, 0, 0, 0.35);
+    }
+}
+
+/* لو الشخص مفعّل "تقليل الحركة": الأرضية ثابتة ومن غير دخول */
+@media (prefers-reduced-motion: reduce) {
+    .hero-bg::before {
+        animation: none;
+        transform: rotateX(72deg);
+    }
+
+    .hero-video,
+    #home p {
+        translate: none;
+    }
 }

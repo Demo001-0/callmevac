@@ -1,16 +1,41 @@
 @font-face {
     font-family: Archivo Black;
     src: url(../fonts/ArchivoBlack-Regular.ttf);
+    font-display: swap;
 }
 
 @font-face {
     font-family: Barlow Black;
     src: url(../fonts/Barlow/Barlow-Regular.ttf);
     font-weight: 400;
+    font-display: swap;
 }
 
 @font-face {
     font-family: pixel Black;
     src: url(../fonts/pixel-Regular.ttf);
     font-weight: 400;
+    font-display: swap;
+}
+
+/* Barlow بأوزانه الحقيقية (للنصوص العادية) */
+@font-face {
+    font-family: Barlow;
+    src: url(../fonts/Barlow/Barlow-Medium.ttf);
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Barlow;
+    src: url(../fonts/Barlow/Barlow-SemiBold.ttf);
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Barlow;
+    src: url(../fonts/Barlow/Barlow-Bold.ttf);
+    font-weight: 700;
+    font-display: swap;
 }

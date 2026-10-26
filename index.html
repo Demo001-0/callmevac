@@ -10,9 +10,12 @@
     <link rel="stylesheet" href="css/navBar.css">
     <link rel="stylesheet" href="css/hero.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/cable.css">
 </head>
 
 <body>
+
     <header>
         <nav>
             <button class="menu-btn" aria-label="Toggle menu">☰</button>
@@ -24,29 +27,56 @@
             </ul>
         </nav>
     </header>
+
     <main>
+
         <section id="home">
             <div class="hero-bg"></div>
-            <video class="hero-video" playsinline preplay ='auto'>
+            <video class="hero-video" playsinline preload="auto">
                 <source src="videos/callmevac.webm" type="video/webm">
             </video>
             <p>HOW THE LITTLE PIGGES WILL GRUNT</p>
             <button class="play-btn">Who am i ?</button>
         </section>
-        <section id="about">
-            <p>ABOUT SECTION</p>
+
+        <section id="about" class="about">
+
+            <div class="tablet">
+                <div class="cable"></div>
+                <div class="about-bg" tabindex="0" role="button" aria-label="Give the tablet a push">
+                    <div class="screen">
+                        <img src="images/me.png" alt="Portrait of Callmevac">
+                        <span class="glare"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about__content">
+                <h2 id="about-title"></h2>
+                <p id="about-bio"></p>
+                <div id="tech-list" class="tech-list"></div>
+            </div>
+
+            <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0,70 C240,8 480,8 720,58 C960,108 1200,108 1440,46 L1440,120 L0,120 Z" fill="#ffffff" />
+            </svg>
         </section>
+
         <section id="contact">
             <p>CONTACT SECTION</p>
         </section>
+
         <section id="services">
             <p>SERVICES SECTION</p>
         </section>
+
     </main>
     <footer>
         <p>&copy; 2026 Callmevac All rights reserved.</p>
     </footer>
-    <script src="script.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/hero.js"></script>
+    <script src="js/about.js"></script>
 </body>
 
 </html>
