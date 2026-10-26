@@ -1,9 +1,7 @@
 // object of screen about
 const profile = {
     title: "Hello!",
-    intro: "Hi, I'm ",
-    name: "Callmevac",
-    bio: ", a web developer who builds sites from scratch. I write the front end by hand and I'm learning Node.js to build my own backend.",
+    bio: "I'm mdSabry a web developer who builds sites from scratch. I'm passionate about back-end and cybersecurity, dealing with some shit .. You know",
     image: "images/me.png",
     imageAlt: "Portrait of Callmevac",
     tech: [
@@ -15,55 +13,55 @@ const profile = {
     ],
 };
 
-// // fetching about screen data
-// function renderProfile(data){
-//     const title = document.getElementById("about-title");
-//     title.textContent = profile.title
-
-//     const bio = document.getElementById("about-bio")
-//     bio.textContent = profile.bio
-
-//     const nameSpan = document.createElement("name")
-
-// }
-// renderProfile(profile);
-
-// بتاخد الداتا وترسمها. مش فارق معاها الداتا جاية منين.
-function renderProfile(data) {
+// fetching about screen data
+function renderProfile(data){
     const title = document.getElementById("about-title");
-    const bio = document.getElementById("about-bio");
-    const img = document.querySelector(".about-bg img");
-    const techList = document.getElementById("tech-list");
+    title.textContent = data.title
 
-    title.textContent = data.title;
+    const bio = document.getElementById("about-bio")
+    bio.textContent = data.bio
 
-    bio.textContent = "";
-    const nameSpan = document.createElement("span");
-    nameSpan.className = "name";
-    nameSpan.textContent = data.name;
-    bio.append(data.intro, nameSpan, data.bio);
-
-    img.src = data.image;
-    img.alt = data.imageAlt;
-
-    techList.replaceChildren();
-    data.tech.forEach(function (tech) {
-        const item = document.createElement("div");
-        item.className = "tech-item";
-
-        const icon = document.createElement("img");
-        icon.src = tech.icon;
-        icon.alt = "";
-
-        const label = document.createElement("span");
-        label.textContent = tech.name;
-
-        item.append(icon, label);
-        techList.appendChild(item);
-    });
+    const image = document.getElementById("aboutImage")
+    image.src = data.image
 }
-
 renderProfile(profile);
+
+// // بتاخد الداتا وترسمها. مش فارق معاها الداتا جاية منين.
+// function renderProfile(data) {
+//     const title = document.getElementById("about-title");
+//     const bio = document.getElementById("about-bio");
+//     const img = document.querySelector(".about-bg img");
+//     const techList = document.getElementById("tech-list");
+
+//     title.textContent = data.title;
+
+//     bio.textContent = "";
+//     const nameSpan = document.createElement("span");
+//     nameSpan.className = "name";
+//     nameSpan.textContent = data.name;
+//     bio.append(data.intro, nameSpan, data.bio);
+
+//     img.src = data.image;
+//     img.alt = data.imageAlt;
+
+//     techList.replaceChildren();
+//     data.tech.forEach(function (tech) {
+//         const item = document.createElement("div");
+//         item.className = "tech-item";
+
+//         const icon = document.createElement("img");
+//         icon.src = tech.icon;
+//         icon.alt = "";
+
+//         const label = document.createElement("span");
+//         label.textContent = tech.name;
+
+//         item.append(icon, label);
+//         techList.appendChild(item);
+//     });
+// }
+
+// renderProfile(profile);
 
 /* =====================================================
    2) التابلت المعلّق: بندول + ميل 3D + دفعة بالضغط

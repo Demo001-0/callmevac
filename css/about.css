@@ -36,13 +36,6 @@
     color: #ffffff;
 }
 
-.about__content .name {
-    font-family: 'pixel Black', monospace;
-    font-weight: 400;
-    font-size: 1.2em;
-    color: #000000;
-}
-
 /* ===== التقنيات ===== */
 .tech-list {
     display: flex;
@@ -71,25 +64,6 @@
     font-weight: 700;
     font-size: 0.95rem;
     color: #ffffff;
-}
-
-/* ===== زخرفة: نجوم + موجة ===== */
-.star {
-    position: absolute;
-    fill: #5c9d00;
-    pointer-events: none;
-}
-
-.star--left {
-    left: clamp(1rem, 5vw, 5rem);
-    bottom: 22%;
-    width: clamp(36px, 4vw, 60px);
-}
-
-.star--right {
-    right: clamp(1rem, 6vw, 6rem);
-    top: 14%;
-    width: clamp(28px, 3vw, 44px);
 }
 
 .wave {
